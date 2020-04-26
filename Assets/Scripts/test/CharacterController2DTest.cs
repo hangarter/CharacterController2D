@@ -12,13 +12,16 @@ namespace test
         public void SetUp()
         {
             _gameObject = new GameObject();
+            _gameObject.AddComponent<Rigidbody2D>();
+            _gameObject.AddComponent<CharacterController2D>();
         }
         
         [Test]
         public void Move_ReceivesVectorUp_MovesOneUnitUp()
         {
             // Given
-            var characterController2D = _gameObject.AddComponent<CharacterController2D>();
+            var characterController2D = _gameObject.GetComponent<CharacterController2D>();
+            characterController2D.Rigidbody2D = _gameObject.GetComponent<Rigidbody2D>();
             var moveDirection = Vector2.up;
             _gameObject.transform.position = new Vector3(2,3);
             
@@ -33,7 +36,8 @@ namespace test
         public void Move_ReceivesVectorDown_MovesOneUnitDown()
         {
             // Given
-            var characterController2D = _gameObject.AddComponent<CharacterController2D>();
+            var characterController2D = _gameObject.GetComponent<CharacterController2D>();
+            characterController2D.Rigidbody2D = _gameObject.GetComponent<Rigidbody2D>();
             var moveDirection = Vector2.down;
             _gameObject.transform.position = new Vector3(2,3);
             
@@ -48,7 +52,8 @@ namespace test
         public void Move_ReceivesVectorLeft_MovesOneUnitLeft()
         {
             // Given
-            var characterController2D = _gameObject.AddComponent<CharacterController2D>();
+            var characterController2D = _gameObject.GetComponent<CharacterController2D>();
+            characterController2D.Rigidbody2D = _gameObject.GetComponent<Rigidbody2D>();
             var moveDirection = Vector2.left;
             _gameObject.transform.position = new Vector3(2,3);
             
@@ -63,7 +68,8 @@ namespace test
         public void Move_ReceivesVectorRight_MovesOneUnitRight()
         {
             // Given
-            var characterController2D = _gameObject.AddComponent<CharacterController2D>();
+            var characterController2D = _gameObject.GetComponent<CharacterController2D>();
+            characterController2D.Rigidbody2D = _gameObject.GetComponent<Rigidbody2D>();
             var moveDirection = Vector2.right;
             _gameObject.transform.position = new Vector3(2,3);
             
